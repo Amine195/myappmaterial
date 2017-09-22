@@ -5,7 +5,7 @@ $( document ).ready(function(){
         rules: {
             username: {
                 required: true,
-                minlength: 5
+                minlength: 6
             },
             email: {
                 required: true,
@@ -13,20 +13,31 @@ $( document ).ready(function(){
             },
             password: {
                 required: true,
-                minlength: 5
+                minlength: 9
             },
             confirmation: {
                 required: true,
-                minlength: 5,
                 equalTo: "#password"
             }
         },
         //For custom messages
         messages: {
             username:{
-                required: "Enter a username",
-                minlength: "Enter at least 5 characters"
-            }
+                required: "Ce Champ est obligatoir !",
+                minlength: "Le nom d'utilisateur doit au moin contenir 6 charactére !"
+            },
+            email:{
+                required: "Ce Champ est obligatoir !",
+                email: "Entrer un valid email !"
+            },
+            password:{
+                required: "Ce Champ est obligatoir !",
+                minlength: "Le mot de passe doit au moin contenir 9 charactére !"
+            },
+            confirmation:{
+                required: "Ce Champ est obligatoir !",
+                equalTo: "vérifier votre mot de passe !"
+            },
         },
         errorElement : 'div',
         errorPlacement: function(error, element) {

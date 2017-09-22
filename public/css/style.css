@@ -1,0 +1,8 @@
+.input-field div.error {
+    position: relative;
+    top: -1rem;
+    left: 0rem;
+    font-size: 0.8rem;
+    color: #FF4040;
+    text-align: right;
+}
