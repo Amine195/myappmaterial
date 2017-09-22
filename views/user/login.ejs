@@ -1,7 +1,66 @@
 <% layout('layout') %>
 
-<% include ../partials/navbar %>
+<!-- Style Background -->
+<style>
+    body {
+        background: url('img/MaterialFontLogin.jpg') no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+    .grey.lighten-4 {
+        background-color: rgba(245, 245, 245, 0.90) !important;
+    }
+</style>
 
-<div class="container">
-    <h5>Login</h5>
-</div>
+<br><br><br><br><br><br>
+
+<center>
+    <div class="container">
+        <div class="z-depth-5 grey lighten-4 row" style="display: inline-block; padding: 20px 50px 20px 50px;">
+            <h5><a href="/">- <i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> -</a></h5>
+            <h5 class="center-align"><i class="material-icons prefix">lock_outline</i> Se Connecter</h5>
+            <h6 class="center-align" style="color:blue; margin-top: 20px; margin-bottom: 20px;"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp; un message a éte envoye dans votre boite email</h6>
+            <!-- <h6 class="center-align" style="color:red; margin-top: 20px; margin-bottom: 20px;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp; un message a éte envoye dans votre boite email</h6> -->
+            <div class="row">
+                <form class="col s12" class="login" id="login" method="POST" action="/login">
+                    <div class="row" style="margin-bottom:0px;">
+                        <div class="input-field col s12" style="margin-top:0px;">
+                            <input id="email" name="email" type="email" class="validate">
+                            <label for="email">Email *</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12" style="margin-top:0px;">
+                            <input id="password" name="password" type="password" class="validate">
+                            <label for="password">Mot de passe *</label>
+                        </div>
+                        <label style='float: left;'>
+                            <a class='pink-text' href='/register'><b>Ouvrir un Compte ?</b></a>
+                        </label>
+                        <label style='float: right;'>
+                            <a class='pink-text' href='#!'><b>Mot de passe oublier ?</b></a>
+                        </label>
+                    </div>
+                    <div class="row">
+                        <p>
+                            <input type="checkbox" id="test5" />
+                            <label for="test5">Remember Me</label>
+                        </p>
+                    </div>
+                    <div class='row'>
+                        <button type='submit' name='btn_register' class='col s12 btn btn waves-effect indigo'>Valider</button>
+                    </div>
+                </form>
+                <hr>
+                <h6 class="center-align">
+                    <a class="indigo-text" href="/auth/facebook"><i class="fa fa-facebook"></i>&nbsp; <strong>Se connecter avec Facebook</strong></a>
+                </h6>
+                <h6 class="center-align"><a class="red-text" href="/auth/google">
+                    <i class="fa fa-google"></i>&nbsp; <strong>Se connecter avec Google</strong></a>
+                </h6>
+            </div>
+        </div>
+    </div>
+</center>
