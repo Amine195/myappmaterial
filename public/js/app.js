@@ -1,6 +1,8 @@
 $( document ).ready(function(){
+    // Mobile side nav
     $(".button-collapse").sideNav();
 
+    // Register validate
     $("#register").validate({
         rules: {
             username: {
@@ -48,5 +50,27 @@ $( document ).ready(function(){
             error.insertAfter(element);
           }
         }
+    });
+});
+
+// Post ville ajax
+$('#add_ville').submit(function(e) {
+    e.preventDefault();
+    
+    var villeItem = $(this).serialize();
+
+    $.post('/ville', villeItem, function(data) {
+        $('#ville-list').append(
+            `
+            <li class="collection-item">
+                <div>${data.name}
+                    <a href="#!" class="secondary-content">
+                        <i class="material-icons">send</i>
+                    </a>
+                </div>
+            </li>
+            `
+        )
+        $('#add_ville').find('.validate').val('');
     });
 });

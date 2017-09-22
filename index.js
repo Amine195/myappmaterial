@@ -2,6 +2,8 @@ const express = require('express');
 var logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const expressSanitizer = require("express-sanitizer");
+const methodOverride = require('method-override');
 const ejs = require('ejs');
 const engine = require('ejs-mate');
 const session = require('express-session');
@@ -44,10 +46,12 @@ app.use(express.static('public'));
 // Middleware
 app.engine('ejs', engine);
 app.set('view engine', 'ejs');
+app.use(methodOverride('_method'));
 app.use(logger('dev'));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+app.use(expressSanitizer());
 app.use(session({
     secret: 'sqlplus8041999',
     resave: false,
@@ -57,6 +61,7 @@ app.use(session({
 
 // Routes
 require('./routes/user')(app);
+require('./routes/ville')(app);
 
 // Start Server
 app.listen(port, function(){

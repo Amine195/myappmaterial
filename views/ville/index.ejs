@@ -1,0 +1,32 @@
+<% layout('layout') %>
+
+<% include ../partials/navbar %>
+
+<br>
+
+<div class="container">
+
+    <h5 class="center-align"><i class="fa fa-cog" aria-hidden="true"></i> Admin</h5>
+    <h6 class="center-align" style="color:red; margin-top: 20px; margin-bottom: 20px;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp; un message a éte envoye dans votre boite email</h6>
+    <div class="row">
+        <form class="col s8 offset-s4" class="register" id="add_ville" method="POST" action="/ville">
+            <div class="row" style="margin-bottom:0px;">
+                <div class="input-field col s6" style="margin-top:0px;">
+                    <input id="new_ville" name="ville[name]" type="text" class="validate">
+                    <label for="new_ville">Enter le nom d'une ville *</label>
+                </div>
+                <button class="btn btn-floating waves-effect waves-light cyan" type="submit" name="submit"><i class="material-icons right">add</i></button>
+            </div>
+        </form>
+    </div>
+
+    <ul class="collection with-header" id="ville-list">
+        <li class="collection-header"><h5 class="center-align">Liste des Villes</h5></li>
+        <% villes.forEach(function(ville){ %>
+            <li class="collection-item"><div><%= ville.name %><a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+        <% }); %>
+    </ul>
+
+</div>
+
+
