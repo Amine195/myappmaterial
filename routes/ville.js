@@ -1,11 +1,11 @@
 // Import Model
-var Ville = require('../models/ville');
+let Ville = require('../models/ville');
 
 module.exports = (app) => {
     
     // GET Ville Page
-    app.get("/ville", function(req, res){
-        Ville.find({}, function(err, villes){
+    app.get("/ville", (req, res) => {
+        Ville.find({}, (err, villes) => {
             if(err){
                 console.log(err);
             } else {
@@ -18,10 +18,10 @@ module.exports = (app) => {
         })
     });
 
-    app.post("/ville", function(req, res){
+    app.post("/ville", (req, res) => {
         req.body.ville.name = req.sanitize(req.body.ville.name);
         var formData = req.body.ville;
-        Ville.create(formData, function(err, newVille){
+        Ville.create(formData, (err, newVille) => {
             if(err){
                 console.log(err);
             } else {
@@ -30,8 +30,8 @@ module.exports = (app) => {
         });
     });
 
-    app.put("/ville/:id", function(req, res){
-        Ville.findByIdAndUpdate(req.params.id, req.body.ville, {new: true}, function(err, ville){
+    app.put("/ville/:id", (req, res) => {
+        Ville.findByIdAndUpdate(req.params.id, req.body.ville, {new: true}, (err, ville) => {
             if(err){
                 console.log(err);
             } else {
@@ -40,8 +40,8 @@ module.exports = (app) => {
         });
     });
        
-    app.delete("/ville/:id", function(req, res){
-        Ville.findByIdAndRemove(req.params.id, function(err, ville){
+    app.delete("/ville/:id", (req, res) => {
+        Ville.findByIdAndRemove(req.params.id, (err, ville) => {
             if(err){
                 console.log(err);
             } else {

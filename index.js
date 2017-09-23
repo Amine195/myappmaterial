@@ -1,5 +1,5 @@
 const express = require('express');
-var logger = require('morgan');
+const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const expressSanitizer = require("express-sanitizer");
