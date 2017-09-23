@@ -30,4 +30,24 @@ module.exports = (app) => {
         });
     });
 
+    app.put("/ville/:id", function(req, res){
+        Ville.findByIdAndUpdate(req.params.id, req.body.ville, {new: true}, function(err, ville){
+            if(err){
+                console.log(err);
+            } else {
+                res.json(ville);
+            }
+        });
+    });
+       
+    app.delete("/ville/:id", function(req, res){
+        Ville.findByIdAndRemove(req.params.id, function(err, ville){
+            if(err){
+                console.log(err);
+            } else {
+                res.json(ville);
+            }
+        }); 
+    });
+
 }

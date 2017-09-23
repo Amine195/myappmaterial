@@ -6,3 +6,7 @@
     color: #FF4040;
     text-align: right;
 }
+
+.edit-form {
+    display: none;
+}
